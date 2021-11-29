@@ -23,8 +23,10 @@ const Login = () => {
         
         try{
             let loginData = await auth.signin(data)
-            if (!loginData){
+            if (loginData === true){
                 navigate(from, { replace: true });
+            } else{
+                alert('Username o pwd non corretti')
             }
         } catch (e){
             console.log(e)

@@ -18,7 +18,11 @@ const AuthProvider = ({ children }) => {
   let signin = async (data) => {
     try{
       let result = await authHelpers.signin(data)
-      result ? setToken(result) : setToken(null)
+      if (result) {
+        setToken(result)
+        return true
+      }
+      return false
     } catch (e){
       console.log(e)
       setToken(null)
