@@ -26,7 +26,7 @@ const Login = () => {
             if (loginData === true){
                 navigate(from, { replace: true });
             } else{
-                alert('Username o pwd non corretti')
+                alert(loginData)
             }
         } catch (e){
             console.log(e)

@@ -6,7 +6,10 @@ const authHelpers = {
   },
   getToken(){
     let token = localStorage.getItem('token');
-    return token
+    if(token){
+      var decoded = jwt_decode(token);
+    }
+    return decoded
   },
   removeToken(){
     localStorage.removeItem('token')
@@ -24,9 +27,9 @@ const authHelpers = {
       if (response.token){
         this.setToken(response.token)
         var decoded = jwt_decode(response.token);
-        return decoded
+        return { token: decoded }
       }
-      return undefined
+      return { msg : response.msg }
     } catch (e) {
       console.log(e)
     }
