@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
   
   useEffect(() => {
     if(authHelpers.getToken()){
+      //aggiungere verifica token
       setToken(authHelpers.getToken())
     }
   }, [])
